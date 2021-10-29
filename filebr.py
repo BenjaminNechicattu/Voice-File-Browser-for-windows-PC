@@ -36,6 +36,9 @@ def fileopo():
                         ##### Space
                     elif i == "space":
                         keyboard.press_and_release('space')
+                        ##### Delete
+                    elif i == "delete":
+                        keyboard.press_and_release('delete')
                         ##### Esacpe
                     elif i == "escape":
                         keyboard.press_and_release('esc')
