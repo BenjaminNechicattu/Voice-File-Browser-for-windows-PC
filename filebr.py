@@ -33,7 +33,10 @@ def fileopo():
                         ##### Change tab
                     elif i == "tab":
                         keyboard.press_and_release('tab')
-                        ##### Change tab
+                        ##### Space
+                    elif i == "space":
+                        keyboard.press_and_release('space')
+                        ##### Esacpe
                     elif i == "escape":
                         keyboard.press_and_release('esc')
                         ##### Back
