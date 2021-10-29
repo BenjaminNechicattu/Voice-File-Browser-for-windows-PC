@@ -7,11 +7,11 @@ import threading
 def fileopo():
     flag = "start"
     def controll():
-        global cmvalue
+        global commandValue
         while flag == "start":
             listenit_thread.start()
             listenit_thread.join()
-            command = cmvalue
+            command = commandValue
             tokens = word_tokenize(command)
             print(tokens)
             key=["up", "down", "right", "tab" ,"left","stop","next","back","backwards","select","backwards","previous", "enter","open"]
@@ -33,6 +33,9 @@ def fileopo():
                         ##### Change tab
                     elif i == "tab":
                         keyboard.press_and_release('tab')
+                        ##### Change tab
+                    elif i == "escape":
+                        keyboard.press_and_release('esc')
                         ##### Back
                     elif i =="back" or i == "backward" or i == "backwards":
                         keyboard.press_and_release('backspace')
@@ -58,7 +61,7 @@ def fileopo():
     controll_thread.join()
 
 def listenit():
-    global cmvalue
+    global commandValue
     r = sr.Recognizer()  
     with sr.Microphone() as source: 
         print("Please wait. Calibrating microphone...")  
@@ -67,8 +70,8 @@ def listenit():
         audio = r.listen(source)  
     # recognize speech using google  
     try:  
-        cmvalue = r.recognize_google(audio)
-        print("elements thinks you said '" + cmvalue)  
+        commandValue = r.recognize_google(audio)
+        print("elements thinks you said '" + commandValue)  
     except sr.UnknownValueError:  
         print("elements could not understand audio")  
     except sr.RequestError as e:  
